@@ -1,7 +1,35 @@
-# Vue 3 + Vite
+## Тестовое задание
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+```
+Необходимо использовать Vue
+1 - сверстать экраны
+2 - реализовать логику экрана "Добавление полей"
+    2.1 - добавление на форму полей
+    2.2 - удаление полей из формы
+    2.3 - установка обязательности заполнения полей
+    2.4 - отображение актуальных настроек формы в области предпросмотра
+```
 
-## Recommended IDE Setup
+## Запуск проекта
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+```
+npm install - устанавливаем зависимости
+npm run dev - запуск проекта в dev режиме
+```
+
+## Демо-версия
+
+```
+Доступна по ссылке: https://joyful-starlight-904ac7.netlify.app
+
+```
+
+## Routing
+
+```
+Страница авторизации - / или /auth
+Страница с формами - /forms
+Страница для создания новой формы - /new-form
+Страница предпросмотра формы - /preview-form
+
+```

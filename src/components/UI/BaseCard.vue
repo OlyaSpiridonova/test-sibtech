@@ -37,6 +37,11 @@ const props = defineProps({
         grid-template-rows: 1fr 2.5fr 1fr;
         gap: 8px;
 
+        &__title {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
         &-text {
             color: var(--text-color);
             font-size: 14px;

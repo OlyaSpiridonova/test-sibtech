@@ -26,6 +26,12 @@ import InfoBlock from '../components/InfoBlock.vue';
     &__form {
         padding: 80px 179px;
         grid-area: form;
+        @media (max-width: 960px) {
+            padding: 80px;
+        }
+        @media (max-width: 780px) {
+            padding: 30px;
+        }
     }
 
     &__content {

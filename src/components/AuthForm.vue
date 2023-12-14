@@ -35,6 +35,11 @@ const password = ref('');
     flex-direction: column;
     align-items: flex-start;
     gap: 30px;
+
+    &__header {
+        font-size: 40px;
+        font-weight: 500;
+    }
     &__control {
         padding-top: 30px;
         display: flex;

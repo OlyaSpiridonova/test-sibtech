@@ -4,6 +4,7 @@ import FormsPage from '../pages/FormsPage.vue';
 import NewFormPage from '../pages/NewFormPage.vue';
 import FormFields from '../components/FormFields.vue';
 import PreviewPage from '../pages/PreviewPage.vue';
+import NotFoundPage from '../pages/NotFoundPage.vue';
 
 const routes = [
     { path: '/', redirect: '/auth' },
@@ -22,6 +23,7 @@ const routes = [
         path: '/preview-form',
         component: PreviewPage,
     },
+    { path: '/:notFound(.*)', component: NotFoundPage },
 ];
 
 const router = createRouter({

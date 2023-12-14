@@ -2,7 +2,7 @@
     <div class="newForm">
         <div class="newForm__points">
             <base-logo />
-            <base-button mode="clearWithIcon">
+            <base-button mode="clearWithIcon" @click="handleBack">
                 <img src="../assets/icons/arrow-left.svg" alt="back" />
                 <span>Назад</span>
             </base-button>
@@ -29,10 +29,9 @@
 </template>
 
 <script setup>
+import PreviewForm from '../components/PreviewForm.vue';
 import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-
-import PreviewForm from '../components/PreviewForm.vue';
 
 const router = useRouter();
 
@@ -46,6 +45,10 @@ const listPoints = ref([
 
 function handleOption(path) {
     return router.push(`/new-form/${path}`);
+}
+
+function handleBack() {
+    router.push('/forms');
 }
 
 onMounted(() => {
