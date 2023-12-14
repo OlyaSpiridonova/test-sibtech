@@ -51,6 +51,13 @@ button,
     }
 }
 
+.inverted {
+    background-color: #fff;
+    color: var(--primary_color);
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .max {
     width: 100%;
 }
@@ -103,6 +110,7 @@ button,
 
 .field {
     display: flex;
+    align-items: center;
     justify-content: space-between;
     color: var(--primary_color);
     background-color: inherit;
@@ -123,6 +131,8 @@ button,
 }
 
 a {
+    font-size: 16px;
+    font-weight: 500;
     color: var(--primary_color);
 }
 </style>

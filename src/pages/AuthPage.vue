@@ -5,7 +5,9 @@
             <auth-form />
             <info-block />
         </div>
-        <div class="auth__content"></div>
+        <div class="auth__content">
+            <img src="../assets/icons/auth.png" alt="auth" />
+        </div>
     </div>
 </template>
 
@@ -28,7 +30,14 @@ import InfoBlock from '../components/InfoBlock.vue';
 
     &__content {
         grid-area: content;
+        display: grid;
+        justify-content: start;
         background: var(--primary_color);
+        align-items: center;
+
+        img {
+            width: 100%;
+        }
     }
 }
 </style>

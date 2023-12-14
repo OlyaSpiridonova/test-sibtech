@@ -1,14 +1,16 @@
 <template>
     <div class="baseInput">
         <div class="baseInput__header">
-            <span>{{ inputValue }}</span>
-            <base-button mode="clearInherit">Удалить поле</base-button>
+            <span>{{ placeholder }}</span>
+            <base-button mode="clearInherit" @click="removeField(props.id)"
+                >Удалить поле</base-button
+            >
         </div>
         <input
-            type="text"
+            :type="type"
             class="baseInput__input"
             v-model="inputValue"
-            placeholder="Введите содержимое поля"
+            :placeholder="placeholder"
         />
         <div class="baseInput__checkbox">
             <input type="checkbox" v-model="checkboxValue" />
@@ -18,22 +20,31 @@
 </template>
 
 <script setup>
-import { ref, defineProps, computed } from 'vue';
+import { ref, defineProps, watch, inject } from 'vue';
+import store from '../../store/index.js';
 
+const { state } = inject('store', store);
 const props = defineProps({
-    value: {
-        type: String,
+    id: {
+        type: Number,
         required: true,
     },
-    required: {
-        type: Boolean,
-        required: false,
-    },
 });
-const inputValue = ref(props.value);
-const checkboxValue = ref(props.required);
+const inputValue = ref(state.fields[props.id].value);
+const checkboxValue = ref(state.fields[props.id].required);
+const type = ref(state.fields[props.id].type);
+const placeholder = ref(state.fields[props.id].placeholder);
 
-const newMessage = computed(() => state.message);
+function removeField(id) {
+    state.fields = state.fields.filter((item) => item.id !== id);
+}
+
+watch(inputValue, () => {
+    state.fields[props.id].placeholder = inputValue;
+});
+watch(checkboxValue, () => {
+    state.fields[props.id].required = checkboxValue;
+});
 </script>
 
 <style lang="scss" scoped>

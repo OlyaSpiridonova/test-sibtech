@@ -3,6 +3,7 @@ import AuthPage from '../pages/AuthPage.vue';
 import FormsPage from '../pages/FormsPage.vue';
 import NewFormPage from '../pages/NewFormPage.vue';
 import FormFields from '../components/FormFields.vue';
+import PreviewPage from '../pages/PreviewPage.vue';
 
 const routes = [
     { path: '/', redirect: '/auth' },
@@ -16,6 +17,10 @@ const routes = [
         component: NewFormPage,
         props: true,
         children: [{ path: 'fields', component: FormFields }],
+    },
+    {
+        path: '/preview-form',
+        component: PreviewPage,
     },
 ];
 

@@ -23,39 +23,18 @@
             <router-view />
         </div>
         <div class="newForm__display">
-            <form class="newForm__display-card">
-                <h2 class="newForm__display-card-title">
-                    Форма регистрации участников
-                </h2>
-                <div class="newForm__display-card-inputBlock">
-                    <input
-                        v-for="item in state.fields"
-                        :key="item.id"
-                        :type="item.type"
-                        class="newForm__display-card-input"
-                        :placeholder="item.placeholder"
-                    />
-                </div>
-                <div class="newForm__display-card-check">
-                    <input type="checkbox" />
-                    <label>
-                        Нажимая кнопку «Отправить», я принимаю условия политики
-                        конфиденциальности
-                    </label>
-                </div>
-                <base-button mode="max">Отправить</base-button>
-            </form>
+            <preview-form />
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, inject, onMounted } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import store from '../store/index';
+
+import PreviewForm from '../components/PreviewForm.vue';
 
 const router = useRouter();
-const { state } = inject('store', store);
 
 const listPoints = ref([
     { id: 1, text: 'Тип формы', link: 'type', active: false },
@@ -117,44 +96,6 @@ onMounted(() => {
     &__display {
         padding: 80px;
         background: var(--primary_color);
-
-        &-card {
-            display: flex;
-            flex-direction: column;
-            gap: 30px;
-            padding: 40px;
-            border-radius: 20px;
-            background: #fff;
-
-            &-title {
-                font-size: 24px;
-                font-weight: 500;
-            }
-
-            &-inputBlock {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            &-input {
-                padding-left: 30px;
-                background: var(--bg-color);
-                height: 70px;
-                width: 100%;
-                border-radius: 10px;
-            }
-
-            &-check {
-                display: flex;
-                gap: 16px;
-                label {
-                    color: var(--text-color);
-                    font-size: 14px;
-                    font-weight: 400;
-                }
-            }
-        }
     }
 }
 </style>
